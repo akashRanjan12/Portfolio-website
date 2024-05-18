@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Submission</title>
+    <style>
+      #loadingMessage,
+      #successMessage {
+        display: none;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      #loadingMessage {
+        color: blue;
+      }
+      #successMessage {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <div id="loadingMessage">Loading...</div>
+    <div id="successMessage">Form submitted successfully!</div>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the form from actually submitting
+
+          // Show the loading message
+          document.getElementById("loadingMessage").style.display = "block";
+          document.getElementById("successMessage").style.display = "none";
+
+          // Simulate a delay of 3 seconds (3000 milliseconds)
+          setTimeout(function () {
+            // Hide the loading message
+            document.getElementById("loadingMessage").style.display = "none";
+            // Show the success message
+            document.getElementById("successMessage").style.display = "block";
+          }, 3000);
+        });
+    </script>
+  </body>
+</html>

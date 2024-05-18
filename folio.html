@@ -285,7 +285,9 @@
               <div class="child-box box-1">
                 <div class="child-inside-box box-01">
                   <div class="image-of-box">
-                    <a href=""><div class="proj-images image-01"></div></a>
+                    <a href="proj-page.html#box-01"
+                      ><div class="proj-images image-01"></div
+                    ></a>
                   </div>
                   <div class="detail">
                     <h3>Standard Calculator</h3>
@@ -599,9 +601,9 @@
             <!-- input clint detail box -->
             <div class="client-detail-box">
               <form
-                action=""
                 name="myform"
-                onsubmit="return(validate())"
+                class="submission"
+                onsubmit="return(validate(event))"
                 style="
                   display: flex;
                   justify-content: center;
@@ -614,18 +616,21 @@
                   placeholder="Name"
                   name="name"
                   class="input-style"
-                  type="text" />
+                  type="text"
+                  required />
                 <input
                   placeholder="E-mail"
                   name="email"
                   class="input-style"
-                  type="email" />
+                  type="email"
+                  required />
                 <input
                   placeholder="Phone No:          --optional--"
                   name="num"
                   class="input-style"
                   type="text" />
                 <textarea
+                  required
                   placeholder="Enter message here.."
                   id="textarea"
                   name="areatext"
@@ -635,7 +640,24 @@
                     font-family: 'Times New Roman', Times, serif;
                   "></textarea>
                 <input type="submit" id="btn01" />
+                <div class="errorbox"></div>
               </form>
+            </div>
+          </div>
+          <div class="msg-box">
+            <i class="fa-solid fa-xmark cross-msg-box" onclick="msg()"></i>
+            <div id="loadingMessage" style="height: 80%; width: 100%">
+              <div id="msg">
+                <div id="loader">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+            <div id="successMessage" style="height: 80%; width: 100%">
+              <div id="msg">success</div>
             </div>
           </div>
         </div>

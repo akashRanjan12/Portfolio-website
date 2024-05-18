@@ -73,17 +73,42 @@ window.onscroll = () => {
 };
 
 // create validation on form
-function validate() {
+function validate(event) {
+  var errEl = document.querySelector(".errorbox");
   if (document.myform.name.value === "") {
-    alert("please enter name");
+    errEl.innerHTML = "Please enter Name.";
+    document.myform.name.focus();
     return false;
   }
   if (document.myform.email.value === "") {
-    alert("please enter a  email");
+    errEl.innerHTML = "Please enter your E-mail.";
+    document.myform.email.focus();
     return false;
   }
   if (document.myform.areatext.value === "") {
-    alert("please fill textarea");
+    errEl.innerHTML = "Please gives me a clue of your contacting purpose.";
+    document.myform.areatext.focus();
     return false;
+  }
+  event.preventDefault();
+  document.querySelector(".msg-box").style.display = "block";
+  document.getElementById("loadingMessage").style.display = "block";
+  document.getElementById("successMessage").style.display = "none";
+
+  // Simulate a delay of 3 seconds (3000 milliseconds)
+  setTimeout(function () {
+    // Hide the loading message
+    document.getElementById("loadingMessage").style.display = "none";
+    // Show the success message
+    document.getElementById("successMessage").style.display = "block";
+  }, 3000);
+  document.body.style.opacity = "0.6";
+  document.myform.reset();
+  return true;
+}
+function msg() {
+  if (document.querySelector(".msg-box").style.display === "block") {
+    document.querySelector(".msg-box").style.display = "none";
+    document.body.style.opacity = "1";
   }
 }

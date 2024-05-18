@@ -921,12 +921,129 @@ body {
   font-size: 1.2em;
   transition: 1s ease;
 }
-
+.errorbox {
+  color: red;
+  font-size: 1.1em;
+}
+.msg-box {
+  display: none;
+  height: 400px;
+  width: 500px;
+  position: fixed;
+  top: 250px;
+  background-color: rgb(163, 101, 255, 0.7);
+}
+.cross-msg-box {
+  font-size: 2em;
+  text-align: right;
+  width: 95%;
+  padding: 10px;
+}
+#msg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* footer */
 .back-to-top-option:hover {
   letter-spacing: 4px;
   font-size: 1.29em;
 }
+/* loader */
+#loader {
+  --color: #a5a5b0;
+  --size: 30px;
+  width: 60px;
+  height: 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+#loader span {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  animation: keyframes-blink 0.5s alternate infinite linear;
+}
+
+#loader span:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+#loader span:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+#loader span:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+#loader span:nth-child(4) {
+  animation-delay: 280ms;
+}
+
+@keyframes keyframes-blink {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5) rotate(20deg);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* proj-page start */
+.container {
+  overflow: hidden;
+}
+.proj-boxes {
+  width: 100%;
+  height: auto;
+  padding-bottom: 30px;
+}
+.image-cont {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.imgs {
+  height: 350px;
+  width: 100%;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 1s;
+}
+.imgs:hover {
+  transform: scale(1.05);
+}
+.img-01 {
+  background-image: url("img/standard-cal.png");
+}
+.detail-container {
+  font-size: 1.2em;
+}
+.btn-cont {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+.btn-cont p {
+  font-size: 1.1em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+/* end proj-page */
+/* end loader */
 @media (max-width: 630px) {
   .container-of-span {
     display: none;
@@ -956,5 +1073,8 @@ body {
     gap: 20px;
     position: relative;
     bottom: -230px;
+  }
+  .msg-box {
+    width: 350px;
   }
 }
