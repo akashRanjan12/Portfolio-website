@@ -930,14 +930,28 @@ body {
   height: 400px;
   width: 500px;
   position: fixed;
-  top: 250px;
-  background-color: rgb(163, 101, 255, 0.7);
+  top: 30%;
+}
+#loadingMessage {
+  background-color: rgb(255, 0, 0, 0.8);
+}
+#successMessage {
+  background-color: green;
 }
 .cross-msg-box {
   font-size: 2em;
   text-align: right;
-  width: 95%;
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  z-index: 1;
+  right: 0;
   padding: 10px;
+}
+#loadingMessage,
+#successMessage {
+  width: 100%;
+  height: 100%;
 }
 #msg {
   width: 100%;
@@ -996,6 +1010,110 @@ body {
     transform: scale(1);
   }
 }
+/* success */
+.card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  border-radius: 50%;
+  border: 35px solid rgb(255, 255, 255, 0.7);
+  transition: all 0.8s ease;
+  filter: blur(0.5rem);
+}
+
+.text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card:hover::before {
+  width: 140px;
+  height: 140px;
+  top: -30%;
+  left: 50%;
+  filter: blur(0rem);
+}
+.success {
+  font-size: 1.2em;
+  font-family: cursive;
+}
+/* tick mark */
+.tick {
+  width: 100px;
+  display: block;
+  margin: 40px auto 0;
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  &.circle {
+    -webkit-animation: dash 0.9s ease-in-out;
+    animation: dash 0.9s ease-in-out;
+  }
+  &.line {
+    stroke-dashoffset: 1000;
+    -webkit-animation: dash 0.9s 0.35s ease-in-out forwards;
+    animation: dash 0.9s 0.35s ease-in-out forwards;
+  }
+  &.check {
+    stroke-dashoffset: -100;
+    -webkit-animation: dash-check 0.9s 0.35s ease-in-out forwards;
+    animation: dash-check 0.9s 0.35s ease-in-out forwards;
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@-webkit-keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
+
+@keyframes dash-check {
+  0% {
+    stroke-dashoffset: -100;
+  }
+  100% {
+    stroke-dashoffset: 900;
+  }
+}
 /* proj-page start */
 .container {
   overflow: hidden;
@@ -1042,6 +1160,7 @@ body {
   flex-direction: column;
   text-align: center;
 }
+
 /* end proj-page */
 /* end loader */
 @media (max-width: 630px) {

@@ -102,13 +102,11 @@ function validate(event) {
     // Show the success message
     document.getElementById("successMessage").style.display = "block";
   }, 3000);
-  document.body.style.opacity = "0.6";
   document.myform.reset();
   return true;
 }
 function msg() {
   if (document.querySelector(".msg-box").style.display === "block") {
     document.querySelector(".msg-box").style.display = "none";
-    document.body.style.opacity = "1";
   }
 }
